@@ -1,6 +1,6 @@
 // Day 2: Dive!
 
-fn part1() {
+fn part1() -> i32 {
     let mut position = 0;
     let mut depth = 0;
 
@@ -9,21 +9,17 @@ fn part1() {
     .for_each(|l| {
         let s = l.split_whitespace().collect::<Vec<&str>>();
         let x = s[1].parse::<i32>().unwrap();
-
         match s[0] {
-            "forward" => {
-                position += x;
-            },
+            "forward" => position += x,
             "down" => depth += x,
             "up" => depth -= x,
             _ => panic!("clutch towel")
         }
     });
-
-    println!("{}", position * depth);
+    return position * depth;
 }
 
-fn part2() {
+fn part2() -> i32 {
     let mut position = 0;
     let mut depth = 0;
     let mut aim = 0;
@@ -33,7 +29,6 @@ fn part2() {
     .for_each(|l| {
         let s = l.split_whitespace().collect::<Vec<&str>>();
         let x = s[1].parse::<i32>().unwrap();
-
         match s[0] {
             "forward" => {
                 position += x;
@@ -44,11 +39,10 @@ fn part2() {
             _ => panic!("oh noo")
         }
     });
-
-    println!("{}", position * depth);
+    return position * depth;
 }
 
 fn main() {
-    part1();
-    part2();
+    println!("{}", part1());
+    println!("{}", part2());
 }

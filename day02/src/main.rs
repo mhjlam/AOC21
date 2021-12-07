@@ -6,14 +6,14 @@ fn part1() -> i32 {
 
     include_str!("input.txt")
     .lines()
-    .for_each(|l| {
-        let s = l.split_whitespace().collect::<Vec<&str>>();
-        let x = s[1].parse::<i32>().unwrap();
-        match s[0] {
-            "forward" => position += x,
-            "down" => depth += x,
-            "up" => depth -= x,
-            _ => panic!("clutch towel")
+    .for_each(|line| {
+        let (direction, amount) = line.split_once(' ').unwrap();
+        let amount = amount.parse::<i32>().unwrap();
+        match direction {
+            "forward" => position += amount,
+            "down" => depth += amount,
+            "up" => depth -= amount,
+            other => panic!("Error: {}", other)
         }
     });
     return position * depth;
@@ -26,17 +26,17 @@ fn part2() -> i32 {
 
     include_str!("input.txt")
     .lines()
-    .for_each(|l| {
-        let s = l.split_whitespace().collect::<Vec<&str>>();
-        let x = s[1].parse::<i32>().unwrap();
-        match s[0] {
+    .for_each(|line| {
+        let (direction, amount) = line.split_once(' ').unwrap();
+        let amount = amount.parse::<i32>().unwrap();
+        match direction {
             "forward" => {
-                position += x;
-                depth += aim * x;
+                position += amount;
+                depth += aim * amount;
             },
-            "down" => aim += x,
-            "up" => aim -= x,
-            _ => panic!("oh noo")
+            "down" => aim += amount,
+            "up" => aim -= amount,
+            other => panic!("Error: {}", other)
         }
     });
     return position * depth;

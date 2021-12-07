@@ -1,3 +1,5 @@
+// Day 1: Sonar Sweep
+
 fn part1() {
     let input = include_str!("input.txt");
     let mut prev = std::i32::MAX;

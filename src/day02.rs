@@ -4,7 +4,7 @@ fn part1() -> i32 {
     let mut position = 0;
     let mut depth = 0;
 
-    include_str!("input.txt")
+    include_str!("day02")
     .lines()
     .for_each(|line| {
         let (direction, amount) = line.split_once(' ').unwrap();
@@ -24,7 +24,7 @@ fn part2() -> i32 {
     let mut depth = 0;
     let mut aim = 0;
 
-    include_str!("input.txt")
+    include_str!("day02")
     .lines()
     .for_each(|line| {
         let (direction, amount) = line.split_once(' ').unwrap();
@@ -43,6 +43,5 @@ fn part2() -> i32 {
 }
 
 fn main() {
-    println!("{}", part1());
-    println!("{}", part2());
+    println!("{} {}", part1(), part2());
 }

@@ -3,7 +3,7 @@
 fn part1() -> i32 {
     let mut prev = i32::MAX;
 
-    return include_str!("input.txt")
+    return include_str!("day01")
     .lines()
     .map(|x| x.parse::<i32>().unwrap())
     .filter(|x| {
@@ -17,7 +17,7 @@ fn part2() -> i32 {
     let mut prev_sum = i32::MAX;
     let mut increases = 0;
 
-    include_str!("input.txt")
+    include_str!("day01")
     .lines()
     .map(|x| x.parse::<i32>().unwrap())
     .collect::<Vec<i32>>()
@@ -33,6 +33,5 @@ fn part2() -> i32 {
 }
 
 fn main() {
-    println!("{}", part1());
-    println!("{}", part2());
+    println!("{} {}", part1(), part2());
 }
